@@ -1,0 +1,14 @@
+# Dependencias / artefactos de desarrollo (no necesarios para producción)
+node_modules/
+package.json
+package-lock.json
+npm-debug.log*
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
+*.swp
