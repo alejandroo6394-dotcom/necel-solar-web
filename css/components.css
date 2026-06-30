@@ -88,30 +88,32 @@
 }
 .brands__head {
   text-align: center;
-  color: var(--c-muted);
-  font-weight: 600;
-  letter-spacing: .04em;
-  margin-bottom: 30px;
-  font-size: .95rem;
+  font-family: var(--font-display);
+  color: var(--c-navy-900);
+  font-weight: 800;
+  letter-spacing: -.01em;
+  margin-bottom: clamp(34px, 4vw, 50px);
+  font-size: clamp(1.6rem, 3.6vw, 2.4rem);
 }
 .brands__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(20px, 4vw, 60px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  max-width: 900px;
+  gap: clamp(22px, 3.5vw, 52px);
+  max-width: 1160px;
   margin-inline: auto;
 }
 .brand-logo {
-  height: 46px;
-  color: #93a4bb;
-  display: grid;
-  place-items: center;
-  transition: color .3s var(--ease), transform .3s var(--ease), filter .3s var(--ease);
-  filter: grayscale(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .3s var(--ease), filter .3s var(--ease);
 }
-.brand-logo svg { height: 100%; width: auto; max-width: 100%; }
-.brand-logo:hover { color: var(--c-blue-700); transform: translateY(-3px); filter: grayscale(0); }
+.brand-logo svg,
+.brand-logo img { height: 42px; width: auto; max-width: 100%; display: block; }
+.brand-logo--necel img { height: 60px; }
+.brand-logo:hover { transform: translateY(-4px) scale(1.03); }
 .brands__note {
   text-align: center;
   margin-top: 30px;
