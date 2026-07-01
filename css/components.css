@@ -100,7 +100,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: clamp(22px, 3.5vw, 52px);
+  gap: clamp(10px, 2vw, 26px);
   max-width: 1160px;
   margin-inline: auto;
 }
@@ -108,11 +108,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform .3s var(--ease), filter .3s var(--ease);
+  transition: transform .3s var(--ease);
 }
-.brand-logo svg,
-.brand-logo img { height: 42px; width: auto; max-width: 100%; display: block; }
-.brand-logo--necel img { height: 60px; }
+.brand-logo img {
+  height: clamp(74px, 9vw, 96px);
+  width: auto;
+  max-width: 100%;
+  display: block;
+}
 .brand-logo:hover { transform: translateY(-4px) scale(1.03); }
 .brands__note {
   text-align: center;

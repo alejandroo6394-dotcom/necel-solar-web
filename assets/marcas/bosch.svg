@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 215 60" role="img" aria-label="Bosch">
-  <circle cx="30" cy="30" r="25" fill="none" stroke="#7b8494" stroke-width="3"/>
-  <g transform="rotate(12 30 30)">
-    <rect x="18" y="18" width="24" height="24" rx="8" fill="none" stroke="#7b8494" stroke-width="3"/>
-  </g>
-  <circle cx="30" cy="30" r="3.6" fill="#7b8494"/>
-  <text x="66" y="41" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="800" letter-spacing="0.5" fill="#e2001a">BOSCH</text>
-</svg>
