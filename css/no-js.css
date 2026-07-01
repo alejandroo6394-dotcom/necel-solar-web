@@ -1,0 +1,20 @@
+/* ==========================================================================
+   NECEL SOLAR — no-js.css
+   Fallback de mejora progresiva: si JavaScript está desactivado, se muestra
+   todo el contenido sin depender de las animaciones de scroll reveal.
+   Se carga únicamente dentro de <noscript>.
+   ========================================================================== */
+
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-zoom {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* La barra de progreso y el botón "volver arriba" no aportan sin JS */
+.scroll-progress { display: none !important; }
+
+/* Sin JS, los resultados de la calculadora muestran el texto de ayuda */
+.calc__placeholder { display: block; }

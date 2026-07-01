@@ -1,0 +1,108 @@
+/* ==========================================================================
+   NECEL SOLAR — animations.css
+   Scroll reveal, barra de progreso, keyframes y micro-interacciones.
+   ========================================================================== */
+
+/* ---- Barra de progreso de scroll ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0;
+  z-index: 1200;
+  background: var(--grad-solar);
+  box-shadow: 0 0 10px rgba(247,148,29,.5);
+  transition: width .1s linear;
+}
+
+/* ---- Scroll reveal ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal.in { opacity: 1; transform: none; }
+
+.reveal-left  { opacity: 0; transform: translateX(-40px); transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+.reveal-right { opacity: 0; transform: translateX(40px);  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+.reveal-zoom  { opacity: 0; transform: scale(.92);        transition: opacity .7s var(--ease-out), transform .7s var(--ease-out); }
+.reveal-left.in, .reveal-right.in, .reveal-zoom.in { opacity: 1; transform: none; }
+
+/* Retardos escalonados para grupos */
+.reveal[data-delay="1"], .reveal-zoom[data-delay="1"] { transition-delay: .08s; }
+.reveal[data-delay="2"], .reveal-zoom[data-delay="2"] { transition-delay: .16s; }
+.reveal[data-delay="3"], .reveal-zoom[data-delay="3"] { transition-delay: .24s; }
+.reveal[data-delay="4"], .reveal-zoom[data-delay="4"] { transition-delay: .32s; }
+.reveal[data-delay="5"], .reveal-zoom[data-delay="5"] { transition-delay: .40s; }
+.reveal[data-delay="6"]                               { transition-delay: .48s; }
+
+/* ---- Keyframes ---- */
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@keyframes ripple {
+  0%   { transform: scale(1);   opacity: .7; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .55; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+@keyframes sun-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---- Entrada del hero (al cargar) ---- */
+.hero__inner > * { opacity: 0; animation: fade-in-up .8s var(--ease-out) forwards; }
+.hero__badge   { animation-delay: .05s; }
+.hero h1       { animation-delay: .15s; }
+.hero__sub     { animation-delay: .28s; }
+.hero__cta     { animation-delay: .40s; }
+.hero__trust   { animation-delay: .52s; }
+.hero-stats    { opacity: 0; animation: fade-in-up .8s var(--ease-out) .6s forwards; }
+
+/* ---- Utilidades de animación ---- */
+.float-anim { animation: float-y 5s ease-in-out infinite; }
+
+.hover-lift { transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
+.hover-lift:hover { transform: translateY(-6px); box-shadow: var(--sh-lg); }
+
+/* Sol decorativo giratorio (hero glow / iconografía) */
+.spin-slow { animation: sun-spin 60s linear infinite; }
+
+/* ---- Contador (estado durante animación) ---- */
+.counting { font-variant-numeric: tabular-nums; }
+
+/* ---- Respeto a usuarios con movimiento reducido ---- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right, .reveal-zoom {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .hero__inner > *, .hero-stats { opacity: 1 !important; animation: none !important; }
+  .float-anim, .spin-slow, .whatsapp-float .pulse { animation: none !important; }
+  .scroll-progress { display: none; }
+  * { scroll-behavior: auto !important; }
+}
